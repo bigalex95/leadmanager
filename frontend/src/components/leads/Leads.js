@@ -7,7 +7,7 @@ export class Leads extends Component {
   static propTypes = {
     leads: PropTypes.array.isRequired,
     getLeads: PropTypes.func.isRequired,
-    deleteLead: PropTypes.func.isRequired
+    deleteLead: PropTypes.func.isRequired,
   };
 
   componentDidMount() {
@@ -17,19 +17,19 @@ export class Leads extends Component {
   render() {
     return (
       <Fragment>
-        <h2>Leads</h2>
+        <h2>Elemanlar</h2>
         <table className="table table-striped">
           <thead>
             <tr>
               <th>ID</th>
-              <th>Name</th>
+              <th>Adı</th>
               <th>Email</th>
-              <th>Message</th>
+              <th>Alanı</th>
               <th />
             </tr>
           </thead>
           <tbody>
-            {this.props.leads.map(lead => (
+            {this.props.leads.map((lead) => (
               <tr key={lead.id}>
                 <td>{lead.id}</td>
                 <td>{lead.name}</td>
@@ -52,8 +52,8 @@ export class Leads extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  leads: state.leads.leads
+const mapStateToProps = (state) => ({
+  leads: state.leads.leads,
 });
 
 export default connect(mapStateToProps, { getLeads, deleteLead })(Leads);

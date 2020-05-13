@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'frontend',
     'knox',
     'accounts',
+    'osgb',
+    'firma',
 ]
 
 REST_FRAMEWORK = {

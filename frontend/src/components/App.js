@@ -4,7 +4,7 @@ import {
   HashRouter as Router,
   Route,
   Switch,
-  Redirect
+  Redirect,
 } from "react-router-dom";
 
 import { Provider as AlertProvider } from "react-alert";
@@ -16,6 +16,7 @@ import Alerts from "./layout/Alerts";
 import Login from "./accounts/Login";
 import Register from "./accounts/Register";
 import PrivateRoute from "./common/PrivateRoute";
+import { RandevuAL } from "./leads/RandevuAL";
 
 import { Provider } from "react-redux";
 import store from "../store";
@@ -24,7 +25,7 @@ import { loadUser } from "../actions/auth";
 //Alert Options
 const alertOptions = {
   timeout: 3000,
-  position: "top center"
+  position: "top center",
 };
 
 class App extends Component {
@@ -45,6 +46,7 @@ class App extends Component {
                   <PrivateRoute exact path="/" component={Dashboard} />
                   <Route exact path="/register" component={Register} />
                   <Route exact path="/login" component={Login} />
+                  <Route exact path="/randevual" component={RandevuAL} />
                 </Switch>
               </div>
             </Fragment>

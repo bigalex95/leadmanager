@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { addLead } from "../../actions/leads";
 
-export class Form extends Component {
+export class RandevuAL extends Component {
   state = {
     name: "",
     email: "",
@@ -38,10 +38,10 @@ export class Form extends Component {
     const { name, email, message } = this.state;
     return (
       <div className="card card-body mt-4 mb-4">
-        <h2 className="text-center">Eleman Ekle</h2>
+        <h2 className="text-center">OSGB Randevu AL</h2>
         <form onSubmit={this.onSubmit}>
           <div className="form-group">
-            <label>Adı Soyadı</label>
+            <label>Firma Adı</label>
             <input
               className="form-control"
               type="text"
@@ -61,7 +61,7 @@ export class Form extends Component {
             />
           </div>
           <div className="form-group">
-            <label>Alanı</label>
+            <label>Message</label>
             <textarea
               className="form-control"
               type="text"
@@ -70,7 +70,7 @@ export class Form extends Component {
               value={message}
             />
           </div>
-          <button type="submit" className="btn btn-primary  btn-block">
+          <button type="submit" className="btn btn-primary btn-block">
             Submit
           </button>
         </form>
@@ -79,4 +79,4 @@ export class Form extends Component {
   }
 }
 
-export default connect(null, { addLead })(Form);
+export default connect(null, { addLead })(RandevuAL);

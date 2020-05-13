@@ -10,15 +10,15 @@ export class Register extends Component {
     username: "",
     email: "",
     password: "",
-    password2: ""
+    password2: "",
   };
 
   static propTypes = {
     register: PropTypes.func.isRequired,
-    isAuthenticated: PropTypes.bool
+    isAuthenticated: PropTypes.bool,
   };
 
-  onSubmit = e => {
+  onSubmit = (e) => {
     e.preventDefault();
     const { username, email, password, password2 } = this.state;
     if (password !== password2) {
@@ -27,13 +27,13 @@ export class Register extends Component {
       const newUser = {
         username,
         password,
-        email
+        email,
       };
       this.props.register(newUser);
     }
   };
 
-  onChange = e => this.setState({ [e.target.name]: e.target.value });
+  onChange = (e) => this.setState({ [e.target.name]: e.target.value });
 
   render() {
     if (this.props.isAuthenticated) {
@@ -43,7 +43,7 @@ export class Register extends Component {
     return (
       <div className="col-md-6 m-auto">
         <div className="card card-body mt-5">
-          <h2 className="text-center">Register</h2>
+          <h2 className="text-center">Yeni Firma Ekle</h2>
           <form onSubmit={this.onSubmit}>
             <div className="form-group">
               <label>Username</label>
@@ -51,6 +51,7 @@ export class Register extends Component {
                 type="text"
                 className="form-control"
                 name="username"
+                placeholder="username"
                 onChange={this.onChange}
                 value={username}
               />
@@ -61,6 +62,7 @@ export class Register extends Component {
                 type="email"
                 className="form-control"
                 name="email"
+                placeholder="email"
                 onChange={this.onChange}
                 value={email}
               />
@@ -71,6 +73,7 @@ export class Register extends Component {
                 type="password"
                 className="form-control"
                 name="password"
+                placeholder="password"
                 onChange={this.onChange}
                 value={password}
               />
@@ -81,18 +84,19 @@ export class Register extends Component {
                 type="password"
                 className="form-control"
                 name="password2"
+                placeholder="confirm password"
                 onChange={this.onChange}
                 value={password2}
               />
             </div>
             <div className="form-group">
-              <button type="submit" className="btn btn-primary">
-                Register
+              <button type="submit" className="btn btn-primary btn-block">
+                Ekle
               </button>
             </div>
-            <p>
-              Already have an account? <Link to="/login">Login</Link>
-            </p>
+            {/* <p className="forgot-password text-right">
+              Already have an account? <Link to="/login">Sign In</Link>
+            </p> */}
           </form>
         </div>
       </div>
@@ -100,8 +104,8 @@ export class Register extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  isAuthenticated: state.auth.isAuthenticated
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.auth.isAuthenticated,
 });
 
 export default connect(mapStateToProps, { register, createMessage })(Register);
